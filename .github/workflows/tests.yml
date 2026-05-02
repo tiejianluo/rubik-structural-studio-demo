@@ -1,0 +1,16 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit-system-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Run unit, system, and acceptance tests
+        run: python run_tests.py

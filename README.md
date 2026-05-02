@@ -282,6 +282,29 @@ This is a **research prototype**, not a full production classroom platform.
 
 ---
 
+## Audit and Test Gates
+
+This repository includes standard-library Python tests so the static prototype
+can be checked even when Node is unavailable locally.
+
+```bash
+python run_tests.py
+```
+
+The command runs:
+
+- unit tests for metadata, C1-C8 claim IDs, condition feature flags, scoring
+  terms, export fields, and required UI targets;
+- system tests that serve the static site and verify HTML/CSS/JS availability;
+- acceptance tests that the reviewer journey exposes Cube Lab, Compare,
+  Notation, Transfer, Teacher, and Research modules.
+
+GitHub Actions runs the same command on push and pull request. Pull requests
+should fill in `.github/pull_request_template.md` with the milestone, related
+claims, unit/system/acceptance evidence, and any deferred risks.
+
+---
+
 ## Citation
 
 If you use or discuss this repository, please cite the associated manuscript and link to the live demo.
