@@ -9,13 +9,19 @@
 Double-click `index.html` or open it in a browser.
 
 ## GitHub Pages deployment
-1. Create a new public GitHub repository.
-2. Upload `index.html`, `styles.css`, and `app.js` to the repository root.
-3. Open `Settings` → `Pages`.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main** and folder **/root**.
-6. Save.
-7. Wait 1–3 minutes and open the generated Pages URL.
+1. Open `https://github.com/tiejianluo/rubik-structural-studio-demo`.
+2. Open `Settings` -> `Pages`.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select branch **gh-pages** and folder **/root**.
+5. Save.
+6. Wait 1-3 minutes and open:
+
+```text
+https://tiejianluo.github.io/rubik-structural-studio-demo/
+```
+
+The same static files are also present on `main`; `gh-pages` is provided as the
+explicit publication branch for branch-based GitHub Pages hosting.
 
 ## Notes
 - The site is static and free-hosting friendly.
