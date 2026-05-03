@@ -1,0 +1,2 @@
+"""Rubik Structural Studio tests."""
+

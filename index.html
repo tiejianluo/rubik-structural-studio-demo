@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rubik Structural Studio — Reviewer Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <div class="badges">
+          <span class="badge">Anonymous interactive prototype</span>
+          <span class="badge badge-outline">Embodied → Relational → Abstract → Transfer</span>
+          <span class="badge badge-outline">Rubik’s Cube example</span>
+          <span class="badge badge-outline">Version <span id="appVersion">0.1.0-roadmap</span></span>
+        </div>
+        <h1>Rubik Structural Studio</h1>
+        <p class="lead">
+          A reviewer-facing web prototype inspired by the paper’s core claim: embodied manipulation supports algebraic abstraction
+          only when instruction redirects learners from move-based activity to relation-based encoding.
+        </p>
+        <div class="hero-actions">
+          <button id="openReviewerMode" class="primary">Open reviewer mode</button>
+          <button id="jumpToDemo" class="secondary">Jump to demo</button>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="stat-card"><div class="stat-label">Relational encoding</div><div class="stat-value" id="relEncoding">0%</div></div>
+        <div class="stat-card"><div class="stat-label">Abstraction readiness</div><div class="stat-value" id="absReady">0%</div></div>
+        <div class="stat-card"><div class="stat-label">Transfer readiness</div><div class="stat-value" id="transferReady">0%</div></div>
+        <div class="stat-card"><div class="stat-label">Transfer quiz</div><div class="stat-value" id="transferScore">0/3</div></div>
+      </div>
+    </header>
+
+    <section class="paper-summary card" id="paperSummary">
+      <div class="card-header">
+        <div>
+          <h2>Paper summary</h2>
+          <p>What this app operationalizes for readers and reviewers.</p>
+        </div>
+        <div class="mode-pill">Reviewer-ready landing section</div>
+      </div>
+      <div class="summary-columns">
+        <div>
+          <h3>Core research question</h3>
+          <p>
+            Under what conditions, and through what mechanism, can embodied manipulation support algebraic abstraction and transferable structural reasoning?
+          </p>
+          <h3>Mechanistic hypothesis</h3>
+          <p>
+            Learners do not move from action to abstraction just because a task is hands-on. The transition is predicted to occur when comparison prompts,
+            notation, explanation prompts, and teacher orchestration redirect attention from moves to invariant relations.
+          </p>
+        </div>
+        <div>
+          <h3>How the app maps to the paper</h3>
+          <ul>
+            <li><strong>Cube Lab</strong>: embodied manipulation of a reversible, order-sensitive system</li>
+            <li><strong>Compare</strong>: attentional reorientation to inverses, cycles, and preserved structure</li>
+            <li><strong>Notation</strong>: symbolic redescription of observed relations</li>
+            <li><strong>Transfer</strong>: analogical alignment to cryptography, robotics, and symmetry-aware AI</li>
+          </ul>
+          <h3>Suggested reviewer path</h3>
+          <ol>
+            <li>Click <em>Reviewer mode</em></li>
+            <li>Try a few cube moves in Condition A and Condition C</li>
+            <li>Compare the prompts and explanation scoring</li>
+            <li>Export the research log to inspect the measurable indicators</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviewer-panel card" id="reviewerPanel" hidden>
+      <div class="card-header">
+        <div>
+          <h2>Reviewer mode</h2>
+          <p>A guided walkthrough aligned to the manuscript’s mechanism figure and minimal validation pathway.</p>
+        </div>
+        <button id="closeReviewerMode" class="secondary">Close</button>
+      </div>
+      <div class="reviewer-grid">
+        <div class="small-card">
+          <strong>1. Core contrast</strong>
+          <p>Condition A uses manipulation alone. Condition C adds comparison, notation, and explanation supports.</p>
+        </div>
+        <div class="small-card">
+          <strong>2. What to watch</strong>
+          <p>Whether the interface shifts learners from move-by-move descriptions to inverse, order, cycle, and preserved-structure language.</p>
+        </div>
+        <div class="small-card">
+          <strong>3. Measurable outputs</strong>
+          <p>Sequence logs, text explanations, relation-vs-procedure scores, transfer quiz results, and condition labels.</p>
+        </div>
+        <div class="small-card alt">
+          <strong>4. Reviewer shortcut</strong>
+          <p>Open the Research tab, set Condition A, try moves, then repeat with Condition C and compare the exported summaries.</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-grid" id="demoStart">
+      <section class="card card-wide">
+        <div class="card-header">
+          <div>
+            <h2>Mechanism map</h2>
+            <p>Designed directly from the paper’s transitions and instructional drivers.</p>
+          </div>
+          <div class="role-toggle">
+            <button class="tab-btn active" data-role="student">Student</button>
+            <button class="tab-btn" data-role="teacher">Teacher</button>
+            <button class="tab-btn" data-role="research">Research</button>
+          </div>
+        </div>
+        <div class="phase-grid">
+          <div class="phase"><div class="phase-label">Phase 1</div><h3>Embodied manipulation</h3><p>Turn a reversible, order-sensitive cube and observe visible state change.</p></div>
+          <div class="phase"><div class="phase-label">Phase 2</div><h3>Relational encoding</h3><p>Notice inverses, preserved structure, cycles, and local–global dependence.</p></div>
+          <div class="phase"><div class="phase-label">Phase 3</div><h3>Algebraic abstraction</h3><p>Compress patterns into notation such as R, U, R′, order, and identity-like relations.</p></div>
+          <div class="phase"><div class="phase-label">Phase 4</div><h3>Transfer</h3><p>Apply the same structural ideas to cryptography, robotics, and symmetry-aware AI.</p></div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="card-header">
+          <div>
+            <h2>Teacher controls</h2>
+            <p>These are transition drivers in the theory, not optional decoration.</p>
+          </div>
+        </div>
+        <div class="control-list">
+          <label class="switch-row"><span>Comparison prompts</span><input id="comparePrompt" type="checkbox" checked /></label>
+          <label class="switch-row"><span>Notation support</span><input id="notationPrompt" type="checkbox" checked /></label>
+          <label class="switch-row"><span>Explanation prompts</span><input id="explanationPrompt" type="checkbox" checked /></label>
+          <label class="switch-row"><span>Teacher orchestration</span><input id="teacherOrchestration" type="checkbox" checked /></label>
+        </div>
+        <div class="progress-group">
+          <div><div class="progress-label">Relational encoding likelihood</div><div class="progress"><div id="barRel" class="bar"></div></div></div>
+          <div><div class="progress-label">Algebraic abstraction likelihood</div><div class="progress"><div id="barAbs" class="bar"></div></div></div>
+          <div><div class="progress-label">Transfer likelihood</div><div class="progress"><div id="barTransfer" class="bar"></div></div></div>
+        </div>
+      </aside>
+
+      <section class="card card-wide">
+        <div class="tabs" id="mainTabs">
+          <button class="tab-btn active" data-tab="cube">Cube Lab</button>
+          <button class="tab-btn" data-tab="compare">Compare</button>
+          <button class="tab-btn" data-tab="notation">Notation</button>
+          <button class="tab-btn" data-tab="transfer">Transfer</button>
+          <button class="tab-btn" data-tab="teacher">Classroom</button>
+          <button class="tab-btn" data-tab="research">Research</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-cube">
+          <div class="two-col">
+            <div>
+              <div class="panel-title">3D cube view</div>
+              <div class="cube-stage">
+                <div class="scene">
+                  <div class="cube3d" id="cube3d">
+                    <div class="face3d face-front"><div class="face-grid face-F"></div></div>
+                    <div class="face3d face-back"><div class="face-grid face-B"></div></div>
+                    <div class="face3d face-right"><div class="face-grid face-R"></div></div>
+                    <div class="face3d face-left"><div class="face-grid face-L"></div></div>
+                    <div class="face3d face-up"><div class="face-grid face-U"></div></div>
+                    <div class="face3d face-down"><div class="face-grid face-D"></div></div>
+                  </div>
+                </div>
+                <div class="rotate-controls">
+                  <button id="viewLeft">⟲ View</button>
+                  <button id="viewRight">⟳ View</button>
+                </div>
+              </div>
+              <div class="panel-title">Net view</div>
+              <div class="cube-net">
+                <div class="net-face net-U"><div class="net-title">Up</div><div class="face-grid face-U"></div></div>
+                <div class="net-face net-L"><div class="net-title">Left</div><div class="face-grid face-L"></div></div>
+                <div class="net-face net-F"><div class="net-title">Front</div><div class="face-grid face-F"></div></div>
+                <div class="net-face net-R"><div class="net-title">Right</div><div class="face-grid face-R"></div></div>
+                <div class="net-face net-B"><div class="net-title">Back</div><div class="face-grid face-B"></div></div>
+                <div class="net-face net-D"><div class="net-title">Down</div><div class="face-grid face-D"></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="panel-title">Manipulation controls</div>
+              <div class="move-controls" id="moveControls"></div>
+              <div class="sequence-box">
+                <div class="sequence-title">Move sequence</div>
+                <div id="sequenceText">No moves yet</div>
+              </div>
+              <div class="button-row">
+                <button id="undoBtn">Undo</button>
+                <button id="resetBtn">Reset</button>
+                <button id="shuffleBtn">Shuffle</button>
+              </div>
+              <div class="diag-grid">
+                <div class="diag-card"><div class="diag-label">Moved stickers</div><div class="diag-value" id="movedStickers">0/24</div></div>
+                <div class="diag-card"><div class="diag-label">Top face solved</div><div class="diag-value" id="topSolved">Yes</div></div>
+                <div class="diag-card"><div class="diag-label">Sequence order</div><div class="diag-value" id="seqOrder">1</div></div>
+                <div class="diag-card"><div class="diag-label">Solved stickers</div><div class="diag-value" id="solvedCount">24</div></div>
+              </div>
+              <div class="prompt-card">
+                <strong>Prompt</strong>
+                <p>What matters more than the raw move list here: inverse, preserved structure, periodicity, or local–global dependence?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-compare">
+          <div class="two-col">
+            <div>
+              <div class="panel-title">Algorithm comparison lab</div>
+              <div id="comparisonCards" class="stack"></div>
+            </div>
+            <div>
+              <div class="panel-title">Relational language tracker</div>
+              <div class="stack">
+                <div class="small-card"><strong>Composition</strong><p>Can the learner describe an algorithm as a whole relation rather than as isolated turns?</p></div>
+                <div class="small-card"><strong>Inverse</strong><p>Can the learner explain how R and R′ undo one another?</p></div>
+                <div class="small-card"><strong>Preserved structure</strong><p>Can the learner identify what stays fixed under a sequence?</p></div>
+                <div class="small-card"><strong>Cycle / order</strong><p>Can the learner notice periodic return, such as U⁴ = identity?</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-notation">
+          <div class="two-col">
+            <div>
+              <div class="panel-title">Notation builder</div>
+              <div class="small-card"><strong>Natural-language description</strong><p>“This algorithm changes one part of the cube while preserving another relation.”</p></div>
+              <div class="arrow-block">↓</div>
+              <div class="small-card alt"><strong>Symbolic template</strong><p>R U R′ U′ ; U⁴ = e ; R · R′ = e ; sequence order = 4.</p></div>
+              <div class="prompt-card">
+                <strong>Why this matters</strong>
+                <p>Notation is not decorative. It lets learners name, compare, compress, and justify the relations first noticed through cube action.</p>
+              </div>
+            </div>
+            <div>
+              <div class="panel-title">Student explanation</div>
+              <textarea id="studentText" rows="8" placeholder="Explain what stayed invariant, what was reversed, or why a sequence has a certain order..."></textarea>
+              <div class="button-row">
+                <button id="scoreTextBtn">Score explanation</button>
+                <button id="voiceBtn">Voice input</button>
+              </div>
+              <div class="diag-grid" style="margin-top:12px;">
+                <div class="diag-card"><div class="diag-label">Explanation score</div><div class="diag-value" id="textScore">0/100</div></div>
+              </div>
+              <div class="small-card"><strong>Feedback</strong><p id="textFeedback">The app scores whether the explanation emphasizes relations (inverse, order, preserved structure) rather than procedure alone.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-transfer">
+          <div class="three-col" id="transferCards"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-teacher">
+          <div class="two-col">
+            <div class="stack">
+              <div class="panel-title">Classroom management panel</div>
+              <label class="stack-label">Class or section name<input id="className" type="text" placeholder="e.g., Grade 8A / Pilot group" /></label>
+              <label class="stack-label">Teacher notes<textarea id="teacherNotes" rows="8" placeholder="Record classroom observations, misconceptions, or notable comparisons."></textarea></label>
+            </div>
+            <div class="stack">
+              <div class="panel-title">Suggested teacher prompts</div>
+              <div class="small-card"><strong>Prompt 1</strong><p>What relation is preserved across two apparently different algorithms?</p></div>
+              <div class="small-card"><strong>Prompt 2</strong><p>Can you express the same cube idea more compactly with notation?</p></div>
+              <div class="small-card"><strong>Prompt 3</strong><p>Which part changed locally, and what remained globally constrained?</p></div>
+              <div class="small-card"><strong>Prompt 4</strong><p>What would remain true if the stickers changed but the move structure stayed the same?</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-research">
+          <div class="two-col">
+            <div class="stack">
+              <div class="panel-title">Research mode</div>
+              <label class="stack-label">Condition
+                <select id="conditionSelect">
+                  <option value="A">A — manipulation only</option>
+                  <option value="B">B — manipulation + comparison</option>
+                  <option value="C">C — manipulation + comparison + notation + explanation</option>
+                </select>
+              </label>
+              <div class="diag-grid">
+                <div class="diag-card"><div class="diag-label">Moves logged</div><div class="diag-value" id="logMoves">0</div></div>
+                <div class="diag-card"><div class="diag-label">Compare opens</div><div class="diag-value" id="logCompare">0</div></div>
+                <div class="diag-card"><div class="diag-label">Notation scores</div><div class="diag-value" id="logNotation">0</div></div>
+                <div class="diag-card"><div class="diag-label">Transfer answers</div><div class="diag-value" id="logTransfer">0</div></div>
+              </div>
+              <div class="button-row">
+                <button id="exportJsonBtn">Export JSON</button>
+                <button id="exportCsvBtn">Export CSV</button>
+                <button id="clearLogBtn">Clear log</button>
+              </div>
+            </div>
+            <div class="stack">
+              <div class="panel-title">Event log preview</div>
+              <pre id="eventLogPreview" class="log-box"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="version-footer">
+      <span>Audit claims: C1-C8</span>
+      <span>Exports include app version, commit SHA, condition, features, events, and scores.</span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
