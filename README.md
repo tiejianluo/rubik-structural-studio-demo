@@ -4,14 +4,14 @@
 
 **A cube-based interactive web prototype for teaching structural thinking**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-2563eb?style=for-the-badge)](https://puli-ai.github.io/rubik-structural-studio-demo/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-2563eb?style=for-the-badge)](https://tiejianluo.github.io/rubik-structural-studio-demo/)
 [![Prototype](https://img.shields.io/badge/Status-Research%20Prototype-f59e0b?style=for-the-badge)](#project-status)
 [![Theory Driven](https://img.shields.io/badge/Design-Theory%20Driven-10b981?style=for-the-badge)](#overview)
 
 **English / 中文**
 
 [Overview](#overview) •
-[Live Demo](https://puli-ai.github.io/rubik-structural-studio-demo/) •
+[Live Demo](https://tiejianluo.github.io/rubik-structural-studio-demo/) •
 [How It Works](#how-it-works) •
 [Features](#features) •
 [For Whom](#who-this-is-for) •
@@ -190,7 +190,7 @@ To inspect how the paper’s conceptual framework has been instantiated in softw
 
 ## Suggested first walkthrough
 
-1. Open the [live demo](https://puli-ai.github.io/rubik-structural-studio-demo/)
+1. Open the [live demo](https://tiejianluo.github.io/rubik-structural-studio-demo/)
 2. Read the **Paper summary**
 3. Turn on **Reviewer mode**
 4. Try several moves in **Cube Lab**
@@ -241,7 +241,7 @@ See:
 
 Or open the already deployed demo:
 
-**https://puli-ai.github.io/rubik-structural-studio-demo/**
+**https://tiejianluo.github.io/rubik-structural-studio-demo/**
 
 ---
 
